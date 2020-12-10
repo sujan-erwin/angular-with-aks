@@ -17,6 +17,8 @@ export class AppComponent implements OnInit {
     private authService: MsalService
   ) {
     console.log(`Using Auth Server: ${environment.API}`);
+    console.log(`Using Auth Server: ${environment.API}`);
+
   }
 
   ngOnInit(): void {
