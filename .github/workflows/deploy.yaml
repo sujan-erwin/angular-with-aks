@@ -16,11 +16,11 @@ jobs:
     
     - uses: Azure/docker-login@v1
       with:
-        login-server: ${{ secrets.ACR_LOGIN_SERVER }}
+        login-server: firstdockergitactions.azurecr.io
         username: ${{ secrets.ACR_USERNAME }}
         password: ${{ secrets.ACR_PASSWORD }}
     
     - run: |
-        docker build . -t ${{ secrets.ACR_LOGIN_SERVER }}/authappfrontend:${{ github.sha }}
-        docker push ${{ secrets.ACR_LOGIN_SERVER }}/authappfrontend:${{ github.sha }}
+        docker build . -t firstdockergitactions.azurecr.io/authappfrontend:${{ github.sha }}
+        docker push firstdockergitactions.azurecr.io/authappfrontend:${{ github.sha }}
 
