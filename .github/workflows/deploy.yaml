@@ -5,6 +5,8 @@ name: Deploy to ACR
 on:
   push:
     branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
 jobs:
   build:
@@ -14,11 +16,11 @@ jobs:
     
     - uses: Azure/docker-login@v1
       with:
-        login-server: ${{ACR_LOGIN_SERVER}}
-        username: ${{ secrets.ACR_USERNAME }}
+        login-server: ${{ secrets.ACR_LOGIN_SERVER }}
+        username: ${{ secrets.secrets.ACR_USERNAME }}
         password: ${{ secrets.ACR_PASSWORD }}
     
     - run: |
-        docker build . -t ${{ACR_LOGIN_SERVER}}/authappfrontend:${{ github.sha }}
-        docker push ${{ACR_LOGIN_SERVER}}/authappfrontend:${{ github.sha }}
+        docker build . -t ${{ secrets.ACR_LOGIN_SERVER }}/authappfrontend:${{ github.sha }}
+        docker push ${{ secrets.ACR_LOGIN_SERVER }}/authappfrontend:${{ github.sha }}
 
