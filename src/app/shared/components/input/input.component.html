@@ -1,0 +1,20 @@
+<div class="form-group">
+  <label *ngIf="label">{{label}}
+  </label> 
+    <input type="{{type}}" 
+           class="form-control" 
+           [maxLength]="maxLength"
+           [(ngModel)]="inputText"  
+           [attr.disabled]="isDisabled"
+           [placeholder]="placeHolder"
+           [min]="min"
+           (ngModelChange)="inputChanges()"
+           (keypress)="keyPress($event)"
+           #autofocus/>
+  <small *ngIf="helpingText"
+         id="helpText" 
+         class="form-text text-muted">
+         {{helpingText}}
+  </small>
+</div>
+

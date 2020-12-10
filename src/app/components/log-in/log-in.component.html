@@ -1,0 +1,33 @@
+<app-navigation></app-navigation>
+<div class="design row justify-content-center vh-after-nav py-3 m-0">
+    <div class="card col-4 px-3">
+        <div class="card-body">
+          <h4 class="card-title mb-3">{{Languages.get('global.logIn', 'capitalizeEach')}}</h4>
+          <section class="pb-5">
+            <form [formGroup]="logInForm">
+
+            <!--Work Email -->
+            <app-input [type]="'email'"
+                       [placeHolder]="Languages.get('global.email', 'capitalizeEach')"
+                       (updateInputChange)="updateSignUpDetails($event, LoginDetails.Email)">
+            </app-input>
+            <!--Password -->
+            <app-input [type]="'password'"
+                       [placeHolder]="Languages.get('global.password', 'capitalizeEach')"
+                       [helpingText]="Languages.get('global.use6OrMoreCharacters', 'capitalize')"
+                       [hasActionIcn]="true"
+                       (updateInputChange)="updateSignUpDetails($event, LoginDetails.Password)">
+            </app-input>
+            </form>
+            <!--button -->
+            <app-button [label]="Languages.get('global.logIn', 'capitalizeEach')"
+                        [isBlock]="true"
+                        [isLarge]="true"
+                        [isPrimary]="true"
+                        [disabled]="!logInForm.valid"
+                        (btnclicked)="zetaLogin()">
+            </app-button>
+        </section>
+        </div>
+    </div>
+    </div>

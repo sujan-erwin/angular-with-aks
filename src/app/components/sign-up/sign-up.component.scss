@@ -1,0 +1,75 @@
+.card-selected,
+.card-selected > .list-group > .list-group-item {
+  background-color: #e7e7e7;
+  color: #04a1ce;
+}
+
+.down-arrow {
+  position: relative;
+}
+
+$margin--10px: -10px;
+$margin-10px: 10px;
+
+.down-arrow::after {
+  content: "";
+  position: absolute;
+  bottom: $margin--10px;
+  height: 0;
+  width: 0;
+  left: 40%;
+  border-top: solid $margin-10px #635cfe;
+  border-left: solid $margin-10px transparent;
+  border-right: solid $margin-10px transparent;
+}
+
+.down-arrow.active:hover .down-arrow.active::after {
+  border-top: solid $margin-10px #3229fe !important;
+}
+.hover-shadow:hover {
+  transition: 0.2s;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+}
+
+.fancy-card-title-1 {
+  display: inline-block;
+  min-height: 32px;
+}
+.fancy-card-title {
+  // background-color: #ff6666;
+  background-color: #00b8e5;
+  margin-left: -25px;
+  padding: 5px 25px 5px 20px;
+  display: inline-block;
+  min-height: 32px;
+  clip-path: polygon(0 0, 85% 0%, 100% 50%, 85% 100%, 0 100%, 0% 50%);
+  color: white;
+}
+.list-group-item {
+  min-height: 33px;
+}
+// .card-group > .card:not(:first-child){
+//   border-left: none;
+// }
+// .card-group > .card:not(:last-child){
+//   border-right: none;
+// }
+.down-arrow::after {
+  content: "";
+  position: absolute;
+  bottom: $margin--10px;
+  height: 0;
+  width: 0;
+  left: 40%;
+  border-top: solid $margin-10px #635cfe;
+  border-left: solid $margin-10px transparent;
+  border-right: solid $margin-10px transparent;
+}
+
+.down-arrow.active:hover .down-arrow.active::after {
+  border-top: solid $margin-10px #3229fe !important;
+}
+.hover-shadow:hover {
+  transition: 0.2s;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+}

@@ -1,0 +1,93 @@
+<app-navigation></app-navigation>
+<div class="design row justify-content-center py-3">
+<div class="card col-4 pl-3 pr-3">
+    <div class="card-body">
+      <h6 class="card-subtitle text-muted">{{Languages.get('global.step', 'capitalizeEach')}} 2 {{Languages.get('global.of', 'capitalize')}} 3</h6>
+      <h4 class="card-title mb-3">{{Languages.get('global.createYourAccount', 'capitalize')}}</h4>
+      <section class="pb-5">
+        <form [formGroup]="signUpForm">
+        <!--first name -->
+        <app-input [type]="'text'"
+                   [placeHolder]="Languages.get('global.firstName', 'capitalizeEach')"
+                   (updateInputChange)="updateSignUpDetails($event, signUpDetails.FirstName)">
+        </app-input>
+
+        <!--last name-->
+        <app-input [type]="'text'"
+                   [placeHolder]="Languages.get('global.lastName', 'capitalizeEach')"
+                   (updateInputChange)="updateSignUpDetails($event, signUpDetails.LastName)">
+        </app-input>
+
+        <!--Work Email -->
+        <app-input [type]="'email'"
+                   [placeHolder]="Languages.get('global.workEmail', 'capitalizeEach')"
+                   (updateInputChange)="updateSignUpDetails($event, signUpDetails.WorkEmail)">
+        </app-input>
+        <!--Password -->
+        <app-input [type]="'password'"
+                   [placeHolder]="Languages.get('global.password', 'capitalizeEach')"
+                   [helpingText]="Languages.get('global.use6OrMoreCharacters', 'capitalize')"
+                   [hasActionIcn]="true"
+                   (updateInputChange)="updateSignUpDetails($event, signUpDetails.Password)">
+        </app-input>
+
+        <!--recaptcha2 -->
+        <div class="form-group">
+          <ngx-recaptcha2 #captchaElem
+                          [siteKey]="recaptchaKey"
+                          (success)="handleSuccess($event)"
+                          formControlName="recaptcha">
+           </ngx-recaptcha2>
+        </div>
+        </form>
+        <!--button -->
+        <app-button [label]="Languages.get('global.createAccount', 'capitalizeEach')"
+                    [isBlock]="true"
+                    [isLarge]="true"
+                    [isPrimary]="true"
+                    [disabled]="!signUpForm.valid"
+                    (btnclicked)="createAccount()">
+        </app-button>
+      <div class="mt-3 mb-3 d-flex align-items-center">
+        <div class="line">
+        </div>
+        <span class="text">
+          {{Languages.get('global.orContinueWith')}}
+        </span>
+        <div class="line">
+        </div>
+      </div>
+
+      <!--button -->
+      <app-button [label]="Languages.get('global.google', 'capitalize')"
+                  [isBlock]="true"
+                  [isLarge]="true"
+                  [isOutlinePrimary]="true"
+                  (btnclicked)="createAccount()">
+      </app-button>
+
+      <div class="mt-3">
+        {{Languages.get('global.byRegisteringYouAgreetoOur', 'capitalize')}}
+        <a class="font-weight-bold text-decoration-underline">
+          {{Languages.get('global.termsOfService', 'capitalize')}}
+        </a>
+        {{Languages.get('global.and', 'capitalize')}}
+        <a class="font-weight-bold text-decoration-underline">
+          {{Languages.get('global.privacyPolicy', 'capitalize')}}
+        </a>
+        .
+      </div>
+      <div class="mt-5">
+        {{Languages.get('global.alreadyhaveAccount', 'capitalize')}}
+          <a routerLink="/sign-in"
+             class="font-weight-bold text-decoration-underline"
+             (click)="navigateToLoginPage()">
+            {{Languages.get('global.logIn', 'capitalize')}}
+          </a>
+      </div>
+    </section>
+    </div>
+</div>
+</div>
+
+

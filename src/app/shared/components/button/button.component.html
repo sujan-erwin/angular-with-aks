@@ -1,0 +1,14 @@
+<button type="button" 
+        class="btn"
+        [ngClass]="{ 'btn-block': isBlock,
+                     'btn-sm': isSmall,
+                     'btn-lg': isLarge,
+                     'btn-primary': isPrimary,
+                     'btn-secondary': isSecondary,
+                     'btn-outline-primary': isOutlinePrimary,
+                     'btn-outline-secondary': isOutlineSecondary 
+                    }"
+        (click)="clicked($event)" 
+        [disabled]="disabled">
+     {{label}}
+</button>

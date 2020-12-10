@@ -1,0 +1,18 @@
+<section class="jumbotron text-center row align-items-center vh-100 mb-0 mr-0">
+  <div class="container">
+    <h1>{{Languages.get('global.webModeler', 'capitalizeEach')}}</h1>
+    <p class="lead">
+      {{Languages.get('global.webModelerDescription', 'capitalize')}}
+    <p>
+      <a routerLink="/sign-in" 
+         class="btn btn-danger my-2 mx-2" >
+         {{Languages.get('global.signIn', 'capitalizeEach')}}
+       </a>
+      <a routerLink="/sign-up" 
+         class="btn btn-secondary my-2 mx-2">
+         {{Languages.get('global.signUp', 'capitalizeEach')}}
+      </a>
+    </p>
+    <p>{{Languages.get('global.description', 'capitalize')}}</p>
+  </div>
+</section>

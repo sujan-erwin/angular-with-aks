@@ -1,0 +1,40 @@
+<app-navigation></app-navigation>
+<div class="design">
+  <div class="container">
+    <div class="d-flex vh-after-nav justify-content-center align-items-center">
+      <div class="col-4">
+
+        <div class="card">
+          <div class="card-header">{{Languages.get('global.continueUsing', 'capitalize')}}</div>
+          <div class="card-body p-0">
+            <ul class="list-group list-group-flush">
+              <a *ngIf="user" class="list-group-item text-decoration-none text-reset" routerLink="/home">
+                <div class="row px-2">
+                  <div class="col-2 border p-0 rounded-circle">
+                    <img [src]="getProfilePic()" class="w-100 rounded-circle">
+                  </div>
+                  <div class="col-10">
+                    {{ user?.fullName }}
+                    <br>
+                    <small>
+                      {{user?.email}}
+                    </small>
+                  </div>
+                </div>
+              </a>
+              <li *ngIf="!user" class="list-group-item pointer hover" (click)="logout()">
+                {{Languages.get('global.loginWithMicrosoft', 'capitalize')}}
+              </li>
+              <!-- {{Languages.get('global.continueUsing', 'capitalize')}} -->
+              <li *ngIf="user" class="list-group-item pointer hover" (click)="logout()">
+                {{Languages.get('global.useDifferentO365Account', 'capitalize')}}
+              </li>
+              <li class="list-group-item pointer hover bg-success text-white text-decoration-none"
+                (click)="zetaLogin()">
+                {{Languages.get('global.loginWithZeta', 'capitalize')}}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>

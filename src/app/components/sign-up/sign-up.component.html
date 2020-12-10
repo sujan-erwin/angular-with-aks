@@ -1,0 +1,53 @@
+<app-navigation></app-navigation>
+<div class="design vh-75">
+  <div class="container pt-3">
+    <div class="text-muted">{{Languages.get('global.step', 'capitalizeEach')}}
+      1 of 3</div>
+    <div class="h4">{{Languages.get('global.chooseAPlan', 'capitalize')}}</div>
+    <div class="card-group">
+      <div *ngFor="let plan of plans" class="card"
+        [ngClass]="{ 'hover-shadow' : plan.id!=0, 'card-selected': plan.id==1}">
+        <div class="card-body">
+          <h6 *ngIf="!plan.name" class="card-title fancy-card-title-1"></h6>
+          <h6 *ngIf="plan.name" class="card-title fancy-card-title">
+            <!-- <input type="radio" name="plan"> -->
+            {{plan.name}}</h6>
+        </div>
+        <ul class="list-group list-group-flush text-center">
+          <li class="list-group-item py-1">{{plan.pricePerMonth}}</li>
+          <li class="list-group-item py-1">{{plan.editableDocuments}}</li>
+          <li class="list-group-item py-1">{{plan.personalTemplate}}</li>
+          <li class="list-group-item py-1">{{plan.collaboration}}</li>
+          <li class="list-group-item py-1">{{plan.integrations}}</li>
+          <li class="list-group-item py-1">
+            <span *ngIf="plan.id == 0">{{plan.security}}</span>
+            <span *ngIf="plan.id != 0">
+              <fa-icon *ngIf="plan.security == true" [icon]="faCheck"></fa-icon>
+              <fa-icon *ngIf="plan.security == false" [icon]="faCheck"></fa-icon>
+            </span>
+          </li>
+          <li class="list-group-item py-1">{{plan.dataAndAutomation}}</li>
+          <li class="list-group-item py-1">{{plan.easyAdminControls}}</li>
+          <li class="list-group-item py-1">{{plan.sso}}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="fixed-bottom">
+      <div class="container">
+        <button class="btn btn-danger float-right mb-3" 
+                [disabled]="!selectedPlan"
+                (click)="navigateToCreateAccount()">
+                {{Languages.get('global.continueWithFree', 'capitalize')}}
+        </button>
+        <!-- <a class="btn btn-danger float-right mb-3" 
+           routerLink="sign-up/step-2">
+           Continue with Free
+         </a> -->
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+</div>

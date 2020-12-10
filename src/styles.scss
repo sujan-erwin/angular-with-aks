@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+// @import 'office-ui-fabric-core/dist/css/fabric.css';
+$theme-colors: (
+  "primary": #635cfe,
+  "success": #00b8e5,
+  "danger": #f66,
+  "secondary": #000,
+);
+// $enable-rounded: false;
+$border-radius: 0.15rem;
+$enable-shadows: true;
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";
+.btn {
+  line-height: 1.2;
+  padding: 0.275rem 2.75rem 0.4rem 2.75rem;
+}
+.pointer {
+  cursor: pointer;
+}
+.hover:hover{
+  opacity: .8;
+}
+.design {
+  // background-size: 40%;
+  // background-image:;
+  // background: #ededed; /* fallback for old browsers */
+  background-image: url("../src/assets/Category-BG.svg"), -webkit-linear-gradient(to right, #ededed, #ffffff, #ededed),
+    url("../src/assets/Category-BG.svg"); /* Chrome 10-25, Safari 5.1-6 */
+  background-image: url("../src/assets/Category-BG.svg"), linear-gradient(to right, #ededed, #ffffff, #ededed),
+    url("../src/assets/Category-BG.svg"); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-repeat: no-repeat;
+}
+.vh-after-nav {
+  height: 89vh !important;
+}
+.vh-90 {
+  height: 90vh !important;
+}
